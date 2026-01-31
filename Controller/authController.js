@@ -1,3 +1,4 @@
+import transporter from "../Config/nodemailerAuth.js";
 import User from "../Models/userModel.js";
 import generateToken from "../Utils/generateToken.js";
 

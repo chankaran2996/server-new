@@ -5,6 +5,8 @@ import connectDB from './Database/connection.js';
 import authRouter from './Routers/authRouter.js';
 import cookieParser from 'cookie-parser';
 import adminRouter from './Routers/adminRouter.js';
+import { authMiddleware } from './Middleware/authMiddleware.js';
+import ticketRoute from './Routers/ticketRouter.js';
 
 dotenv.config();
 const port = process.env.PORT || 8080;
@@ -20,6 +22,8 @@ app.get("/", (req,res) => {
 app.use("/api/v1/auth", authRouter);
 
 app.use("/api/v1/admin", adminRouter );
+
+app.use("/api/v1/tickets",authMiddleware,ticketRoute)
 
 app.listen(port, () =>{
     connectDB();
