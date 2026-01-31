@@ -15,7 +15,7 @@ export const addUer = async (req, res) => {
             phone,
             role
         });
-        let inviteURL = `http://localhost:8080/api/v1/auth/role-setup/${newUser._id}`;
+        let inviteURL = `https://server-new-4wya.onrender.com/api/v1/auth/role-setup/${newUser._id}`;
 
         // Send role notification email
         const mailOptions = {
