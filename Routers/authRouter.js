@@ -7,8 +7,9 @@ import {
     getUser,
     loginUser,
     logoutUser,
+    register,
     // loginUser,
-    registerAdmin,
+    // registerAdmin,
     updateUserRole
  } from '../Controller/authController.js';
 import { adminMiddleware, authMiddleware } from '../Middleware/authMiddleware.js';
@@ -31,7 +32,7 @@ authRouter.get("/get-user/:id", authMiddleware, adminMiddleware, getUser);
 authRouter.get("/logout", authMiddleware, logoutUser);
 
 // Post Method
-authRouter.post("/register-admin",registerAdmin);
+authRouter.post("/register",register);
 
 authRouter.post("/login", loginUser);
 

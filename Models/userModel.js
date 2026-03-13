@@ -20,19 +20,6 @@ const userSchema = new mongoose.Schema({
         enum: ['user', 'admin', 'reviewer'],
         default: 'user'
     },
-    resettoken: {
-        type: String,
-    },
-    resettokenexpiry: {
-        type: Date,
-    },
-    profilePic: {
-        type: String
-    },
-    isrRoleAccepted: {
-        type: Boolean,
-        default: false
-    }
 }, { timestamps: true });   
 
 // Hash password before saving

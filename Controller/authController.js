@@ -3,12 +3,12 @@ import User from "../Models/userModel.js";
 import generateToken from "../Utils/generateToken.js";
 
 
-export const registerAdmin = async (req, res) => {
-    const { name, email, password, phone, adminCode } = req.body;
+export const register = async (req, res) => {
+    const { name, email, password, phone } = req.body;
     try {
-        if (adminCode != process.env.ADMIN_CODE) {
-            return res.status(403).json({ message: "Invalid admin code" });
-        }
+        // if (adminCode != process.env.ADMIN_CODE) {
+        //     return res.status(403).json({ message: "Invalid admin code" });
+        // }
         // console.log("admin code verified");
         const existingUser = await User.findOne({ email });
         if (existingUser) {
@@ -20,7 +20,6 @@ export const registerAdmin = async (req, res) => {
             email,
             password,
             phone,
-            role: 'admin'
         });
         res.status(201).json({ message: "Admin registered successfully", user: {
             id: newUser._id,
